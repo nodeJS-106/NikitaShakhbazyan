@@ -6,11 +6,8 @@ dotenv.config();
 
 const port = process.env.PORT || 3006
 
-app.get('/app',gettingDatas)
-app.get('/app/:id',gettingData)
-app.post('/app',creatingData)
-app.put('/app/:id',puttingData)
-app.delete('/app/:id',deletingData)
+app.use(express.json())
+app.use('/app',require('./routes/routes'))
 
 app.listen(process.env.PORT,()=>{
     console.log('Server is on')
